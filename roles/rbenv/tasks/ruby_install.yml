@@ -1,0 +1,6 @@
+---
+- name: "ruby_install | perform ruby {{ ruby_version }} installation"
+  command: ~/.rbenv/bin/rbenv install 3.0.2 -s
+
+- name: "ruby_install | set default rbenv ruby version"
+  command: ~/.rbenv/bin/rbenv global {{ ruby_version }}

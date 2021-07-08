@@ -1,0 +1,12 @@
+---
+- name: "rhel | pkg_install | install common required packages"
+  package:
+    name: "{{ pkg['rhel']['common'] }}"
+    state: present
+
+- name: "rhel | pkg_install | install centos specific required packages"
+  package:
+    state: present
+    name: "{{ pkg['rhel']['centos'] }}"
+  when:
+    - ansible_distribution == 'CentOS'

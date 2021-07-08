@@ -1,8 +1,0 @@
----
-- name: Verify
-  hosts: all
-  gather_facts: false
-  tasks:
-  - name: Include test_rbenv
-    include_role:
-      name: 'test_rbenv'

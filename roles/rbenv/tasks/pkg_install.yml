@@ -1,0 +1,5 @@
+---
+- name: "pkg_install | install required packages"
+  package:
+    name: "{{ pkg['common'] }}"
+    state: present

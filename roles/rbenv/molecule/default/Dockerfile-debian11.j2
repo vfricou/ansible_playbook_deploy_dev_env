@@ -1,0 +1,8 @@
+FROM docker.io/library/debian:testing-slim
+
+ENV LC_ALL C
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt update
+RUN apt -y install \
+              python3

@@ -1,0 +1,12 @@
+---
+- name: "rbenv_post | add rbenv path into .bashrc"
+  lineinfile:
+    path: '${HOME}/.bashrc'
+    regexp: '^PATH="$PATH:~/.rbenv/bin"'
+    line: 'PATH="$PATH:~/.rbenv/bin"'
+
+- name: "rbenv_post | add rbenv shims loading .bashrc"
+  lineinfile:
+    path: '${HOME}/.bashrc'
+    regexp: '^eval "$(rbenv init -)"'
+    line: 'eval "$(rbenv init -)"'

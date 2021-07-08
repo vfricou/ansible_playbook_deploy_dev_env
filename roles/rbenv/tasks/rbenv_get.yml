@@ -1,0 +1,22 @@
+---
+- name: "rbenv_get | clone or update rbenv"  # noqa git-latest
+  git:
+    repo: 'https://github.com/rbenv/rbenv.git'
+    dest: '${HOME}/.rbenv'
+    clone: yes
+    update: yes
+
+- name: "rbenv_get | ensure plugin dir exist"
+  file:
+    path: '${HOME}/.rbenv/plugins'
+    state: directory
+    owner: "{{ ansible_real_user_id }}"
+    group: "{{ ansible_real_group_id }}"
+    mode: 0755
+
+- name: "rbenv_get | clone or update ruby-build plugin"  # noqa git-latest
+  git:
+    repo: 'https://github.com/rbenv/ruby-build.git'
+    dest: '${HOME}/.rbenv/plugins/ruby-build'
+    clone: yes
+    update: yes
