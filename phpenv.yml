@@ -1,0 +1,4 @@
+---
+- hosts: phpenv
+  roles:
+    - { role: phpenv }

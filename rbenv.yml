@@ -1,0 +1,4 @@
+---
+- hosts: rbenv
+  roles:
+    - { role: rbenv }

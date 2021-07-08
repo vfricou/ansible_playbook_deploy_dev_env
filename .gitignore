@@ -1,0 +1,13 @@
+# Ignore IDE files and folder
+/.idea
+/.vscode
+/.history
+/*\~
+/.*\~
+
+# Ignore inventories
+/production
+/staging
+
+# Ignore cache folders created with molecule or ansible failed run
+/.cache

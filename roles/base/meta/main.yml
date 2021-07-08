@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: "base"
+  author: "Vincent Fricou"
+  namespace: "vfricou"
+  description: 'Deploy bases packages for development on remote target'
+  license: BSD-3
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+    - name: Win32NT
+      versions:
+        - 6
+        - 7
+        - 8
+
+dependencies: []
