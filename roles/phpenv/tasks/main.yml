@@ -1,8 +1,30 @@
 ---
-# @meta author:
-# @meta description:
+# @meta author: Vincent Fricou
+# @meta description: Deploy phpenv and install php on remote target.
+# @action # Deploy phpenv to remote hosts on connection user.
+# @action # Install php in specified version and setup rbenv to use it.
 
 - block:
     - import_tasks: check_os.yml
   tags:
     - always
+
+- import_tasks: pkg_install.yml
+
+#- import_tasks: debian/pkg_install.yml
+#  when:
+#    - ansible_distribution == 'Debian'
+#
+#- import_tasks: rhel/pkg_install.yml
+#  when:
+#    - ansible_distribution == 'CentOS' or
+#      ansible_distribution == 'Rocky'
+#
+#- import_tasks: opensuse/pkg_install.yml
+#  when:
+#    - ansible_distribution == 'openSUSE Leap'
+
+- import_tasks: phpenv_get.yml
+- import_tasks: phpenv_install.yml
+- import_tasks: phpenv_post.yml
+- import_tasks: php_install.yml

@@ -1,0 +1,13 @@
+---
+- name: "phpenv_install | perform dependencies installation"
+  command: sh install-dependencies.sh
+  args:
+    chdir: ~/.phpenv/plugins/php-build
+  register: phpenv_dependencies
+  changed_when: phpenv_dependencies.rc|int < 0
+  failed_when: phpenv_dependencies.rc|int > 0
+  become: yes
+  become_user: 'root'
+  become_method: su
+  when:
+    - ansible_distribution != 'openSUSE Leap'

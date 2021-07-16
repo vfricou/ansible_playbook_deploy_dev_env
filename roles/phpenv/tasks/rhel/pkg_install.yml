@@ -1,0 +1,60 @@
+---
+
+- name: "rhel | pkg_install | centos specific tasks"
+  block:
+    - name: "rhel | pkg_install | centos | install epel-release"
+      package:
+        state: present
+        name:
+          - epel-release
+
+    - name: "rhel | pkg_install | centos | enable PowerTool repository"
+      command: yum-config-manager --enable PowerTools
+      register: enabling_powertools
+      changed_when: enabling_powertools.rc|int < 0
+      failed_when: enabling_powertools.rc|int > 0
+
+    - name: "rhel | pkg_install | centos | install specifc packages"
+      package:
+        name: "{{ pkg['rhel']['centos'] }}"
+        state: present
+      become: yes
+      become_user: 'root'
+      become_method: su
+  when:
+    - ansible_distribution == 'CentOS'
+
+- name: "rhel | pkg_install | rocky | specific tasks"
+  block:
+    - name: "rhel | pkg_install | rocky | install epel-release"
+      package:
+        state: present
+        name:
+          - yum-utils
+          - dnf-plugins-core
+          - epel-release
+
+    - name: "rhel | pkg_install | rocky | enable PowerTool repository"
+      command: yum config-manager --set-enabled powertools
+      register: enabling_powertools
+      changed_when: enabling_powertools.rc|int < 0
+      failed_when: enabling_powertools.rc|int > 0
+
+    - name: "rhel | pkg_install | centos | install specifc packages"
+      package:
+        name: "{{ pkg['rhel']['rocky'] }}"
+        state: present
+      become: yes
+      become_user: 'root'
+      become_method: su
+  when:
+    - ansible_distribution == 'Rocky'
+
+- name: "rhel | pkg_install | install common required packages"
+  package:
+    name: "{{ pkg['rhel']['common'] }}"
+    state: present
+  become: yes
+  become_user: 'root'
+  become_method: su
+

@@ -1,0 +1,17 @@
+---
+- name: "php_install | perform php {{ php_version }} installation"
+  command: ~/.phpenv/bin/phpenv install {{ php_version }} -s
+  register: rinstall
+  changed_when: rinstall.stderr is search("successfully")
+  failed_when: rinstall.stderr is search("ERROR")
+
+- name: "php_install | get phpenv global status"
+  command: ~/.phpenv/bin/phpenv global
+  register: phpenv_global_status
+  changed_when: phpenv_global_status.stdout == "system"
+  failed_when: phpenv_global_status.stdout == ""
+
+- name: "php_install | set default phpenv php version"
+  command: ~/.phpenv/bin/phpenv global {{ php_version }}
+  register: phpenv_global_set
+  when: phpenv_global_status.stdout != php_version

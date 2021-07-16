@@ -1,0 +1,78 @@
+---
+pkg:
+  common:
+    - git
+    - curl
+    - autoconf
+    - bison
+  debian:
+    - build-essential
+    - ca-certificates
+    - findutils
+    - libbz2-dev
+    - libcurl4-gnutls-dev
+    - libicu-dev
+    - libjpeg-dev
+    - libmcrypt-dev
+    - libonig-dev
+    - libpng-dev
+    - libreadline-dev
+    - libsqlite3-dev
+    - libssl-dev
+    - libtidy-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - libzip-dev
+    - pkg-config
+    - re2c
+    - zlib1g-dev
+  opensuse:
+    - automake
+    - gcc
+    - gcc-c++
+    - libffi-devel
+    - libopenssl-devel
+    - libtool
+    - libyaml-devel
+    - make
+    - patch
+    - readline-devel
+    - zlib-devel
+    - gzip
+  rhel:
+    common:
+      - bzip2
+      - bzip2-devel
+      - cmake3
+      - diffutils
+      - findutils
+      - gcc
+      - gcc-c++
+      - patch
+      - readline
+      - readline-devel
+      - libffi-devel
+      - openssl-devel
+      - libtool
+      - libyaml
+      - libcurl-devel
+      - libicu-devel
+      - libjpeg-turbo-devel
+      - libmcrypt-devel
+      - libpng-devel
+      - libtidy-devel
+      - libxml2-devel
+      - libxslt-devel
+      - libzip-devel
+      - make
+      - oniguruma
+      - oniguruma-devel
+      - openssl-devel
+      - readline-devel
+      - sqlite-devel
+      - zlib
+      - zlib-devel
+    rocky:
+      - pkgconf
+    centos:
+      - pkgconfig
