@@ -3,10 +3,16 @@
   package:
     name: "{{ pkg['rhel']['common'] }}"
     state: present
+  become: yes
+  become_user: 'root'
+  become_method: su
 
 - name: "rhel | pkg_install | install centos specific required packages"
   package:
     state: present
     name: "{{ pkg['rhel']['centos'] }}"
+  become: yes
+  become_user: 'root'
+  become_method: su
   when:
     - ansible_distribution == 'CentOS'
