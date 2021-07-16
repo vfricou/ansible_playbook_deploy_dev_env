@@ -1,6 +1,8 @@
 ---
-# @meta author:
-# @meta description:
+# @meta author: Vincent Fricou
+# @meta description: Deploy rbenv and install ruby on remote target.
+# @action # Deploy rbenv to remote hosts on connection user.
+# @action # Install ruby in specified version and setup rbenv to use it.
 
 - block:
     - import_tasks: check_os.yml

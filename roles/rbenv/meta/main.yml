@@ -3,7 +3,7 @@ galaxy_info:
   role_name: "rbenv"
   author: "Vincent Fricou"
   namespace: "vfricou"
-  description: 'Deploy rbenv on remote target'
+  description: 'Deploy rbenv and install ruby on remote target'
   license: BSD-3
   min_ansible_version: 2.9
   platforms:
