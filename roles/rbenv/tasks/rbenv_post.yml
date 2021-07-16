@@ -1,0 +1,29 @@
+---
+- name: "rbenv_post | ensure user bashrc file exist"
+  block:
+    - name: "rbenv_post | stat bashrc user file"
+      stat:
+        path: '${HOME}/.bashrc'
+      register: user_bashrc_file
+
+    - name: "rbenv_post | ensure user bashrc file exist"
+      file:
+        state: touch
+        path: '${HOME}/.bashrc'
+        mode: '0644'
+        owner: '{{ ansible_effective_user_id|int }}'
+        group: '{{ ansible_effective_group_id|int }}'
+      when:
+        - not user_bashrc_file.stat.exists
+
+- name: "rbenv_post | add rbenv path into user bashrc"
+  lineinfile:
+    path: '${HOME}/.bashrc'
+    regexp: '^PATH="$PATH:~/.rbenv/bin"'
+    line: 'PATH="$PATH:~/.rbenv/bin"'
+
+- name: "rbenv_post | add rbenv shims loading .bashrc"
+  lineinfile:
+    path: '${HOME}/.bashrc'
+    regexp: '^eval "$(rbenv init -)"'
+    line: 'eval "$(rbenv init -)"'

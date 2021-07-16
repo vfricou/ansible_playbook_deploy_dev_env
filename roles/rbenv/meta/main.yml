@@ -3,22 +3,24 @@ galaxy_info:
   role_name: "rbenv"
   author: "Vincent Fricou"
   namespace: "vfricou"
-  description: 'Deploy rbenv on remote target'
+  description: 'Deploy rbenv and install ruby on remote target'
   license: BSD-3
   min_ansible_version: 2.9
   platforms:
     - name: EL
       versions:
-        - 7
         - 8
     - name: Debian
       versions:
         - buster
         - bullseye
-    - name: Win32NT
+    - name: CentOS
       versions:
-        - 6
         - 7
+    - name: Rocky
+      versions:
         - 8
-
+    - name: SLES
+      versions:
+        - 15
 dependencies: []

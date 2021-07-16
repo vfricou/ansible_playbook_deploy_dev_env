@@ -1,0 +1,17 @@
+---
+- name: "ruby_install | perform ruby {{ ruby_version }} installation"
+  command: ~/.rbenv/bin/rbenv install 3.0.2 -s
+  register: rinstall
+  changed_when: rinstall.stderr != ""
+  failed_when: rinstall.rc|int > 0
+
+- name: "ruby_install | get rbenv global status"
+  command: ~/.rbenv/bin/rbenv global
+  register: rbenv_global_status
+  changed_when: rbenv_global_status.rc|int < 0
+  failed_when: rbenv_global_status.rc|int > 0
+
+- name: "ruby_install | set default rbenv ruby version"
+  command: ~/.rbenv/bin/rbenv global {{ ruby_version }}
+  register: rbenv_global_set
+  when: rbenv_global_status.stdout != ruby_version

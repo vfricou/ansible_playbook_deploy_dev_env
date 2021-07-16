@@ -4,9 +4,21 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: molecule_php_instance
-    dockerfile: Dockerfile.j2
+  - name: molecule_debian10_instance
+    dockerfile: Dockerfile-debian10.j2
     image: debian:10-slim
+  - name: molecule_debian11_instance
+    dockerfile: Dockerfile-debian11.j2
+    image: debian:testing-slim
+  - name: molecule_rocky8_instance
+    dockerfile: Dockerfile-rocky8.j2
+    image: rockylinux/rockylinux:8
+  - name: molecule_centos7_instance
+    dockerfile: Dockerfile-centos7.j2
+    image: centos:7
+  - name: molecule_opensuse15_instance
+    dockerfile: Dockerfile-opensuse15.j2
+    image: opensuse/leap:15
 lint: |
   set -e
   printf "##########################################\n"

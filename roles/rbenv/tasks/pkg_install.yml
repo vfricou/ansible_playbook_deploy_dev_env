@@ -1,0 +1,8 @@
+---
+- name: "pkg_install | install required packages"
+  package:
+    name: "{{ pkg['common'] }}"
+    state: present
+  become: yes
+  become_user: 'root'
+  become_method: su

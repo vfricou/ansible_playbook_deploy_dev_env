@@ -1,0 +1,12 @@
+---
+- name: "rbenv_install | perform build configuration"
+  command: src/configure
+  args:
+    chdir: '${HOME}/.rbenv'
+  register: run_configure
+  changed_when: run_configure.rc|int < 0
+  failed_when: run_configure.rc|int > 0
+
+- name: "rbenv_install | perform make step"
+  make:
+    chdir: '${HOME}/.rbenv/src'

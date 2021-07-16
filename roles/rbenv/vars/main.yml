@@ -1,0 +1,48 @@
+---
+pkg:
+  common:
+    - git
+    - curl
+    - autoconf
+    - bison
+  debian:
+    - libssl-dev
+    - libreadline-dev
+    - zlib1g-dev
+    - build-essential
+    - libyaml-dev
+    - libreadline-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm-dev
+  opensuse:
+    - automake
+    - gcc
+    - gcc-c++
+    - libffi-devel
+    - libopenssl-devel
+    - libtool
+    - libyaml-devel
+    - make
+    - patch
+    - readline-devel
+    - zlib-devel
+    - gzip
+  rhel:
+    common:
+      - gcc
+      - zlib
+      - zlib-devel
+      - gcc-c++
+      - patch
+      - readline
+      - readline-devel
+      - libffi-devel
+      - openssl-devel
+      - make
+      - bzip2
+      - automake
+      - libtool
+      - libyaml
+    centos:
+      - libyaml-devel
