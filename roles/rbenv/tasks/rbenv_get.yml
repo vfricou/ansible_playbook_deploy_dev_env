@@ -10,8 +10,8 @@
   file:
     path: '${HOME}/.rbenv/plugins'
     state: directory
-    owner: "{{ ansible_real_user_id }}"
-    group: "{{ ansible_real_group_id }}"
+    owner: "{{ ansible_real_user_id|int }}"
+    group: "{{ ansible_real_group_id|int }}"
     mode: 0755
 
 - name: "rbenv_get | clone or update ruby-build plugin"  # noqa git-latest
