@@ -1,0 +1,8 @@
+---
+- name: "opensuse | pkg_install | install required packages"
+  package:
+    name: "{{ pkg['opensuse'] }}"
+    state: present
+  become: yes
+  become_user: 'root'
+  become_method: su

@@ -3,6 +3,7 @@
 # @meta description: Deploy phpenv and install php on remote target.
 # @action # Deploy phpenv to remote hosts on connection user.
 # @action # Install php in specified version and setup rbenv to use it.
+# @todo php install # Add opensuse php installation
 
 - block:
     - import_tasks: check_os.yml
