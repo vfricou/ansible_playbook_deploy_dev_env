@@ -1,0 +1,3 @@
+---
+# @var php_version: '3.0.2' # Select php version to install on remote system
+php_version: '8.0.7'
