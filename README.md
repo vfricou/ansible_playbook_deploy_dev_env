@@ -27,6 +27,12 @@ This ansible playbook is designed to deploy development environment on remote ho
 | RedHat EL     | 8             |
 | OpenSUSE Leap | 15            |
 
+## Testing process
+
+All the playbook was fully tested :
+- All role was linted before each commit.
+- All modifications was validated with molecule to perform deployment and idempotence check (except for RHEL 8).
+- All modifications was validated with virtual machines for each OS supported.
 
 ## Changelog
 - 2021-07-16 - WIP : Adding fully working rbenv role
