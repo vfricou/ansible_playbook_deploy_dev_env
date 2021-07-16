@@ -1,4 +1,0 @@
----
-- hosts: base
-  roles:
-    - { role: base }

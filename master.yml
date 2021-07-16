@@ -3,4 +3,3 @@
 
 - include: rbenv.yml
 - include: phpenv.yml
-- include: base.yml
