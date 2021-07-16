@@ -20,4 +20,7 @@ galaxy_info:
     - name: Rocky
       versions:
         - 8
+    - name: SLES
+      versions:
+        - 15
 dependencies: []

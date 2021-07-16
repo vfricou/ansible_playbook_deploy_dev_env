@@ -20,6 +20,10 @@
     - ansible_distribution == 'CentOS' or
       ansible_distribution == 'Rocky'
 
+- import_tasks: opensuse/pkg_install.yml
+  when:
+    - ansible_distribution == 'openSUSE Leap'
+
 - import_tasks: rbenv_get.yml
 - import_tasks: rbenv_install.yml
 - import_tasks: rbenv_post.yml

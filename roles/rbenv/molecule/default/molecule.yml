@@ -16,6 +16,9 @@ platforms:
   - name: molecule_centos7_instance
     dockerfile: Dockerfile-centos7.j2
     image: centos:7
+  - name: molecule_opensuse15_instance
+    dockerfile: Dockerfile-opensuse15.j2
+    image: opensuse/leap:15
 lint: |
   set -e
   printf "##########################################\n"
